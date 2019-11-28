@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3F08B183-9BFF-4061-877B-43BF634DFA4B}</ProjectGuid>
+    <ProjectGuid>{EACE7C35-09FF-4E35-B91B-7B0F7C50F4BD}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>ITU2_NotizbuchOOP</RootNamespace>
     <AssemblyName>ITU2_NotizbuchOOP</AssemblyName>
@@ -46,14 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Einkaufszettel.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Hausaufgabe.cs" />
     <Compile Include="Notiz.cs" />
     <Compile Include="Notizbuch.cs" />
     <Compile Include="Program.cs" />

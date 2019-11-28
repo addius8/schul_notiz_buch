@@ -12,107 +12,86 @@ namespace ITU2_NotizbuchOOP
 {
     public partial class Form1 : Form
     {
+        Note currentNote = null;
+        NoteBook noteBookInstance = new NoteBook();
+
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void syncDisplayBox()
         {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateErstellung_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void drpDwnKategorie_SelectedItemChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        // private void btnSpeichern_Click(object sender, EventArgs e)
-        private void btnSpeichern_notiz_Click(object sender, EventArgs e)
-        {
-
-            Console.WriteLine("Btn saved Event");
-            string cu_title = titel_notiz.Text;
-            string cu_priority = priority_notiz.Value.ToString();
-            string category = kategorie_notiz.Text;
-            string content = inhalt_notiz.Text;
-            DateTime create_date = erstellung_notiz.Value;
-            DateTime due_date = deadline_notiz.Value;
-            Console.WriteLine("cu_title: " + cu_title);
-            Console.WriteLine("cu_priority : " + cu_priority);
-            Console.WriteLine("category : " + category);
-            Console.WriteLine("create_date : " + create_date);
-            Console.WriteLine("due_date : " + due_date);
-            Console.WriteLine("content : " + content);
-
-            IList<string> must_have_list = new List<string>();
-            must_have_list.Add("cu_title");
-            must_have_list.Add("category");
-
-
-            int size_of_must_have_list = must_have_list.Count;
-            for (int i = 0; i < size_of_must_have_list; i++)
+            notes_display.Items.Clear();
+            List<Note> tempNotes = noteBookInstance.getNotes();
+            foreach (Note note in tempNotes)
             {
-                Console.WriteLine(must_have_list[i]);
+                notes_display.Items.Add(note.getTitle());
             }
         }
+        private void label9_Click(object sender, EventArgs e)
+        {
 
-        private void Form1_Load(object sender, EventArgs e)
+        }
+        private void btn_neu_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label12_Click(object sender, EventArgs e)
+        private void saveNote(object sender, EventArgs e)
+        {
+            string title = title_input.Text;
+            int priority = (int)priority_input.Value;
+            string category = category_input.Text;
+            string text = note_input.Text;
+            DateTime timestamp = timestamp_input.Value;
+            DateTime deadline = deadline_input.Value;
+            noteBookInstance.saveNote(title, priority, category, text, timestamp, deadline);
+
+            syncDisplayBox();
+        }
+        private void deleteByTitle(object sender, EventArgs e)
+        {
+            String title = notes_display.SelectedItem.ToString();
+            noteBookInstance.deleteByTitle(title);
+
+            syncDisplayBox();
+        }
+        private void edit_btn_Click(object sender, EventArgs e)
+        {
+            String title = notes_display.SelectedItem.ToString();
+            Note note = noteBookInstance.findNoteByTitle(title);
+            title_input.Text = title;
+            priority_input.Value = note.getPriority();
+            timestamp_input.Value = note.getTimestamp();
+            deadline_input.Value = note.getDeadline();
+            category_input.Text = note.getCategory();
+            note_input.Text = note.getText();
+            
+
+
+            syncDisplayBox();
+        }
+
+        private void searchByTitle(object sender, EventArgs args)
+        {
+            string titleComponent = search_title_input.Text;
+            notes_display.Items.Clear();
+            List<Note> tempNotes = noteBookInstance.getNotes();
+            foreach (Note note in tempNotes)
+            {
+                if (note.getTitle().Contains(titleComponent))
+                {
+                    notes_display.Items.Add(note.getTitle());
+                }
+            }
+        }
+        private void updown_prio_ValueChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void label15_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numPrioSuche_notiz_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        //private void btnSpeichern_notiz_Click(object sender, EventArgs e)
-        //{
-        //
-        //}
-
-        private void inhalt_notiz_TextChanged(object sender, EventArgs e)
+        private void txt_titel_TextChanged(object sender, EventArgs e)
         {
 
         }

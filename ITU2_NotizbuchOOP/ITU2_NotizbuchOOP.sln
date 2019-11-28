@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITU2_NotizbuchOOP", "ITU2_NotizbuchOOP\ITU2_NotizbuchOOP.csproj", "{3F08B183-9BFF-4061-877B-43BF634DFA4B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITU2_NotizbuchOOP", "ITU2_NotizbuchOOP\ITU2_NotizbuchOOP.csproj", "{EACE7C35-09FF-4E35-B91B-7B0F7C50F4BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3F08B183-9BFF-4061-877B-43BF634DFA4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3F08B183-9BFF-4061-877B-43BF634DFA4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3F08B183-9BFF-4061-877B-43BF634DFA4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3F08B183-9BFF-4061-877B-43BF634DFA4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EACE7C35-09FF-4E35-B91B-7B0F7C50F4BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EACE7C35-09FF-4E35-B91B-7B0F7C50F4BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EACE7C35-09FF-4E35-B91B-7B0F7C50F4BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EACE7C35-09FF-4E35-B91B-7B0F7C50F4BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D7E9E001-6761-40D1-A378-FB55F2B80FCB}
+		SolutionGuid = {AB2CDA2D-34DC-43EA-BE7D-1BBDB9F49FA0}
 	EndGlobalSection
 EndGlobal

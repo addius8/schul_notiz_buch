@@ -7,37 +7,62 @@ using System.Threading.Tasks;
 
 namespace ITU2_NotizbuchOOP
 {
-    class Notizbuch
+    class NoteBook
     {
-        // private ArrayList notizen;
-        private List<Notiz> notizen;
-        private string titel;
+        private string noteBookName;
+        private List<Note> notes = new List<Note>();
 
-
-        /**
-         * 
-         */
-        public void notizHinzufuegen(
-            string      p_titel,
-            DateTime    p_erstellDatum,
-            int         p_prio,
-            string      p_kategorie,
-            string      p_text,
-            DateTime    p_deadLine
-            )
+        public List<Note> getNotes()
         {
-            Notiz einNeuesNotizObjet = new Notiz();
-            einNeuesNotizObjet.setTitle(p_titel);
-            einNeuesNotizObjet.setErstellDatum(p_erstellDatum);
-            einNeuesNotizObjet.setPrio(p_prio);
-            einNeuesNotizObjet.setKategorie(p_kategorie);
-            einNeuesNotizObjet.setText(p_text);
-            einNeuesNotizObjet.setDeadLine(p_deadLine);
+            return this.notes;
+        }
 
-            // speicdhern des neuen Objekts
-            notizen.Add(einNeuesNotizObjet);
-            
+        public void saveNote(string   title,
+                              int      priority,
+                              string   category,
+                              string   text,
+                              DateTime timestamp,
+                              DateTime deadline)
+        {
+            //Neue Notiz erstellen
+            Note newNote = new Note(title);
+            newNote.setPriority(priority);
+            newNote.setCategory(category);
+            newNote.setText(text);
+            newNote.setTimestamp(timestamp);
+            newNote.setDeadline(deadline);
 
+
+            // replace note if a note with the same title already existed instead of adding a new one
+            if (notes.Contains(newNote))
+            {
+                deleteByTitle(newNote.getTitle());
+            }
+
+            //speichern des neuen Objekts
+            notes.Add(newNote);
+        }
+        public Note findNoteByTitle(String title)
+        {
+            for (int i = 0; i < notes.Count(); i++)
+            {
+                Note note = notes[i];
+                if (title.Equals(note.getTitle()))
+                {
+                    return note;
+                }
+            }
+            return null;
+        }
+        public void deleteByTitle(string title)
+        {
+            for (int i = 0; i < notes.Count(); i++)
+            {
+                if (title.Equals(notes[i].getTitle()))
+                { 
+                    notes.RemoveAt(i);
+                }
+            }
         }
     }
 }

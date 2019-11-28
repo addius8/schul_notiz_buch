@@ -6,65 +6,84 @@ using System.Threading.Tasks;
 
 namespace ITU2_NotizbuchOOP
 {
-    class Notiz
+    class Note
     {
-        private string titel;
-        private int prio;
-        private string kategorie;
+        private string title;
+        private int priority;
+        private string category;
         private string text;
-        private DateTime erstellDatum;
-        private DateTime deadLine;
+        private DateTime timestamp;
+        private DateTime deadline;
+        //        private string p_titel;
 
-        public void setTitle(string p_titel)
+
+        public override bool Equals(object obj)
         {
-            titel = p_titel;
+            if (obj == null)
+            {
+                return false;
+            }
+            if (obj.GetType() != this.GetType())
+            {
+                return false;
+            }
+            if (!this.title.Equals(((Note) obj).getTitle()))
+            {
+                return false;
+            }
+
+            return true;
         }
 
-        public void setPrio(int p_prio)
+        public Note(string p_titel)
         {
-            prio = p_prio;
+            this.title = p_titel;
         }
-
-        public void setKategorie(string p_kategorie)
+        public void setPriority(int p_prio)
         {
-            kategorie = p_kategorie;
+            priority = p_prio;
         }
-
+        public void setCategory(string p_kategorie)
+        {
+            category = p_kategorie;
+        }
         public void setText(string p_text)
         {
             text = p_text;
         }
-
-        public void setErstellDatum(DateTime p_erstellDatum)
+        public void setTimestamp(DateTime p_erdat)
         {
-            erstellDatum = p_erstellDatum;
-
+            timestamp = p_erdat;
+        }
+        public void setDeadline(DateTime p_fadat)
+        {
+            deadline = p_fadat;
+        }
+        public string getTitle()
+        {
+            return this.title;
+        }
+        public int getPriority()
+        {
+            return this.priority;
+        }
+        public string getCategory()
+        {
+            return this.category;
         }
 
-        public void setDeadLine(DateTime p_deadLine)
+        public string getText()
         {
-            deadLine = p_deadLine;
+            return this.text;
         }
-
-        /**
-        public Notiz(
-                string titel,
-                int prio,
-                string kategorie,
-                string text,
-                DateTime erstellDatum,
-                DateTime deadLine
-            )
+        public DateTime getTimestamp()
         {
-            this.titel = titel;
-            this.prio = prio;
-            this.kategorie = kategorie;
-            this.text = text;
-            this.erstellDatum = erstellDatum;
-            this.deadLine = deadLine;
-            
+            return this.timestamp;
         }
-         *
-         */
+        public DateTime getDeadline()
+        {
+            return this.deadline;
+        }
+       
     }
 }
