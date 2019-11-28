@@ -6,65 +6,37 @@ using System.Threading.Tasks;
 
 namespace ITU2_NotizbuchOOP
 {
-    class Notiz
+    public class Notiz
     {
-        private string titel;
-        private int prio;
+        private string titel; //Titel soll nur im Konstruktor festgelegt werden können
+        private DateTime erstelldatum;
+        private int prioritaet;
         private string kategorie;
-        private string text;
-        private DateTime erstellDatum;
-        private DateTime deadLine;
+        private DateTime deadline;
+        private string inhalt;
 
-        public void setTitle(string p_titel)
-        {
-            titel = p_titel;
-        }
+        public string Titel { get => titel; }
+        public DateTime Erstelldatum { get => erstelldatum; }
+        public int Prioritaet { get => prioritaet; set => prioritaet = value; }
+        public string Kategorie { get => kategorie; set => kategorie = value; }
+        public DateTime Deadline { get => deadline; set => deadline = value; }
+        public string Inhalt { get => inhalt; set => inhalt = value; }
 
-        public void setPrio(int p_prio)
-        {
-            prio = p_prio;
-        }
-
-        public void setKategorie(string p_kategorie)
-        {
-            kategorie = p_kategorie;
-        }
-
-        public void setText(string p_text)
-        {
-            text = p_text;
-        }
-
-        public void setErstellDatum(DateTime p_erstellDatum)
-        {
-            erstellDatum = p_erstellDatum;
-
-        }
-
-        public void setDeadLine(DateTime p_deadLine)
-        {
-            deadLine = p_deadLine;
-        }
-
-        /**
-        public Notiz(
-                string titel,
-                int prio,
-                string kategorie,
-                string text,
-                DateTime erstellDatum,
-                DateTime deadLine
-            )
+        //Konstruktor
+        public Notiz(string titel)
         {
             this.titel = titel;
-            this.prio = prio;
-            this.kategorie = kategorie;
-            this.text = text;
-            this.erstellDatum = erstellDatum;
-            this.deadLine = deadLine;
-            
+            this.erstelldatum = DateTime.Now;
         }
-         *
-         */
+
+        public Notiz(string titel, int prioritaet, string kategorie, DateTime deadline, string inhalt)
+        {
+            this.titel = titel;
+            this.erstelldatum = DateTime.Now;
+            this.prioritaet = prioritaet;
+            this.kategorie = kategorie;
+            this.deadline = deadline;
+            this.inhalt = inhalt;
+        }
     }
 }

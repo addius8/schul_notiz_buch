@@ -1,10 +1,10 @@
-\\Srv01\AMüller\Documents\Visual Studio 2017\Meine Programme\Johanns\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\bin\Debug\ITU2_NotizbuchOOP.exe.config
-\\Srv01\AMüller\Documents\Visual Studio 2017\Meine Programme\Johanns\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\bin\Debug\ITU2_NotizbuchOOP.exe
-\\Srv01\AMüller\Documents\Visual Studio 2017\Meine Programme\Johanns\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\bin\Debug\ITU2_NotizbuchOOP.pdb
-\\Srv01\AMüller\Documents\Visual Studio 2017\Meine Programme\Johanns\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\obj\Debug\ITU2_NotizbuchOOP.Form1.resources
-\\Srv01\AMüller\Documents\Visual Studio 2017\Meine Programme\Johanns\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\obj\Debug\ITU2_NotizbuchOOP.Properties.Resources.resources
-\\Srv01\AMüller\Documents\Visual Studio 2017\Meine Programme\Johanns\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\obj\Debug\ITU2_NotizbuchOOP.csproj.GenerateResource.cache
-\\Srv01\AMüller\Documents\Visual Studio 2017\Meine Programme\Johanns\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\obj\Debug\ITU2_NotizbuchOOP.csproj.CoreCompileInputs.cache
-\\Srv01\AMüller\Documents\Visual Studio 2017\Meine Programme\Johanns\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\obj\Debug\ITU2_NotizbuchOOP.exe
-\\Srv01\AMüller\Documents\Visual Studio 2017\Meine Programme\Johanns\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\obj\Debug\ITU2_NotizbuchOOP.pdb
-\\Srv01\AMüller\Documents\Visual Studio 2017\Meine Programme\Johanns\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\obj\Debug\ITU2_NotizbuchOOP.csprojAssemblyReference.cache
+H:\_AWE\Notizbuch\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\bin\Debug\ITU2_NotizbuchOOP.exe.config
+H:\_AWE\Notizbuch\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\bin\Debug\ITU2_NotizbuchOOP.exe
+H:\_AWE\Notizbuch\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\bin\Debug\ITU2_NotizbuchOOP.pdb
+H:\_AWE\Notizbuch\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\obj\Debug\ITU2_NotizbuchOOP.csprojAssemblyReference.cache
+H:\_AWE\Notizbuch\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\obj\Debug\ITU2_NotizbuchOOP.Form1.resources
+H:\_AWE\Notizbuch\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\obj\Debug\ITU2_NotizbuchOOP.Properties.Resources.resources
+H:\_AWE\Notizbuch\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\obj\Debug\ITU2_NotizbuchOOP.csproj.GenerateResource.cache
+H:\_AWE\Notizbuch\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\obj\Debug\ITU2_NotizbuchOOP.csproj.CoreCompileInputs.cache
+H:\_AWE\Notizbuch\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\obj\Debug\ITU2_NotizbuchOOP.exe
+H:\_AWE\Notizbuch\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\obj\Debug\ITU2_NotizbuchOOP.pdb
