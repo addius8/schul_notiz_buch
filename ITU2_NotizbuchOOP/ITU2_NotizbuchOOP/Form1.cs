@@ -12,21 +12,30 @@ namespace ITU2_NotizbuchOOP
 {
     public partial class Form1 : Form
     {
-        Note currentNote = null;
-        NoteBook noteBookInstance = new NoteBook();
+        int currentNote = 0;
+        int currentHomeWork = 0;
+        int currentShoppingNote = 0;
+        NoteBook regularNoteBookInstance = new NoteBook();
+        NoteBook homeWorkNoteBook = new NoteBook();
+        NoteBook shoppingNoteBook = new NoteBook();
 
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void syncDisplayBox()
+        private void syncNotesDisplayBox()
         {
             notes_display.Items.Clear();
-            List<Note> tempNotes = noteBookInstance.getNotes();
-            foreach (Note note in tempNotes)
+            List<Entry> tempNotes = regularNoteBookInstance.getNotes();
+            tempNotes.Sort();
+            foreach (Entry note in tempNotes)
             {
-                notes_display.Items.Add(note.getTitle());
+                notes_display.Items.Add(
+                    note.getID() +
+                    " - " +
+                    note.getTitle()
+                );
             }
         }
         private void label9_Click(object sender, EventArgs e)
@@ -46,44 +55,99 @@ namespace ITU2_NotizbuchOOP
             string text = note_input.Text;
             DateTime timestamp = timestamp_input.Value;
             DateTime deadline = deadline_input.Value;
-            noteBookInstance.saveNote(title, priority, category, text, timestamp, deadline);
+            Note newNote;
+            if (currentNote != 0)
+            {
+                newNote = new Note(title, priority, category, text, timestamp, deadline, currentNote);
+            } else
+            {
+                newNote = new Note(title, priority, category, text, timestamp, deadline);
+            }
+            regularNoteBookInstance.saveNote(newNote);
+            currentNote = 0;
+            clear();
+            syncNotesDisplayBox();
+        }
+        private void btn_clear_click(object sender, EventArgs e)
+        {
+            clear();
+        }
+        private void clear()
+        {
+            title_input.Text = "";
+            priority_input.Value = 0;
+            category_input.Text = "";
+            note_input.Text = "";
+            timestamp_input.Value = DateTime.Now;
+            deadline_input.Value = DateTime.Now;
+            currentNote = 0;
 
-            syncDisplayBox();
         }
         private void deleteByTitle(object sender, EventArgs e)
+        { 
+            int noteID = parseIDFromTitle();
+            if (noteID == 0)
+            {
+                return;
+            }
+            regularNoteBookInstance.deleteByID(noteID);
+            syncNotesDisplayBox();
+        }
+        private int parseIDFromTitle()
         {
-            String title = notes_display.SelectedItem.ToString();
-            noteBookInstance.deleteByTitle(title);
-
-            syncDisplayBox();
+            object o = notes_display.SelectedItem;
+            if (o == null)
+            {
+                return 0;
+            }
+            String displayed_title = o.ToString();
+            String id = displayed_title.Substring(0, displayed_title.IndexOf(" - "));
+            return int.Parse(id);
         }
         private void edit_btn_Click(object sender, EventArgs e)
-        {
-            String title = notes_display.SelectedItem.ToString();
-            Note note = noteBookInstance.findNoteByTitle(title);
-            title_input.Text = title;
+        { 
+            currentNote = parseIDFromTitle();
+
+            Note note = (Note) regularNoteBookInstance.findEntryByID(currentNote);
+            title_input.Text = note.getTitle();
             priority_input.Value = note.getPriority();
             timestamp_input.Value = note.getTimestamp();
             deadline_input.Value = note.getDeadline();
             category_input.Text = note.getCategory();
             note_input.Text = note.getText();
+
+
             
-
-
-            syncDisplayBox();
+            syncNotesDisplayBox();
+        }
+        private void search_notes_title_input_changed (object sender, EventArgs e)
+        {
+            searchNotesByTitle();
+        }
+        private void search_notes_priority_input_changed(object sender, EventArgs e)
+        {
+            searchNotesByTitle();
         }
 
-        private void searchByTitle(object sender, EventArgs args)
+
+        private void searchNotesByTitle()
         {
+            content_display.Text = "";
             string titleComponent = search_title_input.Text;
             notes_display.Items.Clear();
-            List<Note> tempNotes = noteBookInstance.getNotes();
-            foreach (Note note in tempNotes)
+            List<Entry> tempNotes = regularNoteBookInstance.getNotes();
+            foreach (Entry entry in tempNotes)
             {
-                if (note.getTitle().Contains(titleComponent))
+                Note note = (Note) entry;
+                if (note.getTitle().Contains(titleComponent) && note.getPriority() == search_priority_input.Value)
                 {
-                    notes_display.Items.Add(note.getTitle());
+                    notes_display.Items.Add(
+                    note.getID() +
+                    " - " +
+                    note.getTitle()
+                );
                 }
+
             }
         }
         private void updown_prio_ValueChanged(object sender, EventArgs e)
@@ -94,6 +158,114 @@ namespace ITU2_NotizbuchOOP
         private void txt_titel_TextChanged(object sender, EventArgs e)
         {
 
+        }
+        private void notes_display_doubleclick(object sender, EventArgs e)
+        {
+            currentNote = parseIDFromTitle();
+            Note note = (Note) regularNoteBookInstance.findEntryByID(currentNote);
+
+            if (note != null)
+            {
+                content_display.Text = note.getText();
+            } else
+            {
+                content_display.Text = null;
+            }
+            syncNotesDisplayBox();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label27_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saveHomeWork(object sender, EventArgs e)
+        {
+            string title = title_input.Text;
+            int priority = (int)priority_input.Value;
+            string category = category_input.Text;
+            string text = note_input.Text;
+            DateTime timestamp = timestamp_input.Value;
+            DateTime deadline = deadline_input.Value;
+            Note newNote;
+            if (currentNote != 0)
+            {
+                newNote = new Note(title, priority, category, text, timestamp, deadline, currentNote);
+            }
+            else
+            {
+                newNote = new Note(title, priority, category, text, timestamp, deadline);
+            }
+            regularNoteBookInstance.saveNote(newNote);
+            currentNote = 0;
+            clear();
+            syncHomeWorkDisplayBox();
+        }
+        private void syncHomeWorkDisplayBox()
+        {
+            homework_display_box.Items.Clear();
+            List<Entry> tempNotes = homeWorkNoteBook.getNotes();
+            tempNotes.Sort();
+            foreach (Entry note in tempNotes)
+            {
+                notes_display.Items.Add(
+                    note.getID() +
+                    " - " +
+                    note.getTitle()
+                );
+            }
+        }
+
+        private void homework_clear_btn_Click(object sender, EventArgs e)
+        {
+            clearHomeWork();
+        }
+        private void clearHomeWork()
+        {
+            this.homework_deadline_input.Value = DateTime.Now;
+            this.homework_subject_input.Text = "";
+            this.homework_timestamp_input.Value = DateTime.Now;
+            this.homework_title_input.Text = "";
+            this.homework_needed_time_input.Value = 0;
+            this.homework_task_input.Text = "";
+            this.currentHomeWork = 0;
+        }
+
+        private void homework_edit_btn_Click(object sender, EventArgs e)
+        {
+            currentHomeWork = parseHomeWorkIDFromTitle();
+
+            HomeWork note = (HomeWork) homeWorkNoteBook.findEntryByID(currentNote);
+            homework_title_input.Text = note.getTitle();
+            homework_needed_time_input.Value = note.getTimeNeeded();
+            homework_timestamp_input.Value = note.getTimestamp();
+            homework_deadline_input.Value = note.getDeadline();
+            homework_subject_input.Text = note.getCategory();
+            homework_task_input.Text = note.getText();
+
+            syncHomeWorkDisplayBox();
+        }
+
+        private int parseHomeWorkIDFromTitle()
+        {
+            object o = homework_display_box.SelectedItem;
+            if (o == null)
+            {
+                return 0;
+            }
+            String displayed_title = o.ToString();
+            String id = displayed_title.Substring(0, displayed_title.IndexOf(" - "));
+            return int.Parse(id);
         }
     }
 }

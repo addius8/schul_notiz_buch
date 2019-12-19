@@ -6,38 +6,34 @@ using System.Threading.Tasks;
 
 namespace ITU2_NotizbuchOOP
 {
-    class Note
+    class Note : Entry, IComparable<Note>
     {
-        private string title;
+        private static int idCounter = 1;
         private int priority;
         private string category;
         private string text;
-        private DateTime timestamp;
-        private DateTime deadline;
-        //        private string p_titel;
-
-
-        public override bool Equals(object obj)
+        private DateTime deadline;     
+        public Note(string title, int priority, string category, string text, DateTime timestamp, DateTime deadline, int id)
         {
-            if (obj == null)
-            {
-                return false;
-            }
-            if (obj.GetType() != this.GetType())
-            {
-                return false;
-            }
-            if (!this.title.Equals(((Note) obj).getTitle()))
-            {
-                return false;
-            }
+            this.title = title;
+            this.id = id;
+            this.category = category;
+            this.priority = priority;
+            this.text = text;
+            this.timestamp = timestamp;
+            this.deadline = deadline;
 
-            return true;
         }
-
-        public Note(string p_titel)
+        public Note(string title, int priority, string category, string text, DateTime timestamp, DateTime deadline)
         {
-            this.title = p_titel;
+            this.title = title;
+            this.id = Note.idCounter;
+            Note.idCounter++;
+            this.priority = priority;
+            this.category = category;
+            this.text = text;
+            this.timestamp = timestamp;
+            this.deadline = deadline;
         }
         public void setPriority(int p_prio)
         {
@@ -71,7 +67,6 @@ namespace ITU2_NotizbuchOOP
         {
             return this.category;
         }
-
         public string getText()
         {
             return this.text;
@@ -84,6 +79,13 @@ namespace ITU2_NotizbuchOOP
         {
             return this.deadline;
         }
-       
+        public int getID()
+        {
+            return this.id;
+        }
+        public void setID(int id)
+        {
+            this.id = id;
+        }
     }
 }

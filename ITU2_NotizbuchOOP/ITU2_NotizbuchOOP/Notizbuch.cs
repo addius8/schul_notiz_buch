@@ -10,55 +10,38 @@ namespace ITU2_NotizbuchOOP
     class NoteBook
     {
         private string noteBookName;
-        private List<Note> notes = new List<Note>();
+        private List<Entry> notes = new List<Entry>();
 
-        public List<Note> getNotes()
+        public List<Entry> getNotes()
         {
             return this.notes;
         }
 
-        public void saveNote(string   title,
-                              int      priority,
-                              string   category,
-                              string   text,
-                              DateTime timestamp,
-                              DateTime deadline)
+        public void saveNote(Entry newEntry)
         {
-            //Neue Notiz erstellen
-            Note newNote = new Note(title);
-            newNote.setPriority(priority);
-            newNote.setCategory(category);
-            newNote.setText(text);
-            newNote.setTimestamp(timestamp);
-            newNote.setDeadline(deadline);
-
-
-            // replace note if a note with the same title already existed instead of adding a new one
-            if (notes.Contains(newNote))
+            if (notes.Contains(newEntry))
             {
-                deleteByTitle(newNote.getTitle());
+                deleteByID(newEntry.getID());
             }
-
-            //speichern des neuen Objekts
-            notes.Add(newNote);
+            notes.Add(newEntry);
         }
-        public Note findNoteByTitle(String title)
+        public Entry findEntryByID(int id)
         {
             for (int i = 0; i < notes.Count(); i++)
             {
-                Note note = notes[i];
-                if (title.Equals(note.getTitle()))
+                Note note = (Note) notes[i];
+                if (id.Equals(note.getID()))
                 {
                     return note;
                 }
             }
             return null;
         }
-        public void deleteByTitle(string title)
+        public void deleteByID(int id)
         {
             for (int i = 0; i < notes.Count(); i++)
             {
-                if (title.Equals(notes[i].getTitle()))
+                if (id.Equals(notes[i].getID()))
                 { 
                     notes.RemoveAt(i);
                 }
