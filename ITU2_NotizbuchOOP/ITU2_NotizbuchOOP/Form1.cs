@@ -109,15 +109,15 @@ namespace ITU2_NotizbuchOOP
             currentNote = parseIDFromTitle();
 
             Note note = (Note) regularNoteBookInstance.findEntryByID(currentNote);
-            title_input.Text = note.getTitle();
-            priority_input.Value = note.getPriority();
-            timestamp_input.Value = note.getTimestamp();
-            deadline_input.Value = note.getDeadline();
-            category_input.Text = note.getCategory();
-            note_input.Text = note.getText();
-
-
-            
+            if (note != null)
+            {
+                title_input.Text = note.getTitle();
+                priority_input.Value = note.getPriority();
+                timestamp_input.Value = note.getTimestamp();
+                deadline_input.Value = note.getDeadline();
+                category_input.Text = note.getCategory();
+                note_input.Text = note.getText();
+            }
             syncNotesDisplayBox();
         }
         private void search_notes_title_input_changed (object sender, EventArgs e)

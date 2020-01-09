@@ -18,3 +18,13 @@ H:\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\obj\Debug\ITU2_NotizbuchOOP.csproj.Genera
 H:\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\obj\Debug\ITU2_NotizbuchOOP.csproj.CoreCompileInputs.cache
 H:\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\obj\Debug\ITU2_NotizbuchOOP.exe
 H:\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\obj\Debug\ITU2_NotizbuchOOP.pdb
+C:\Users\KDanowski\Desktop\schul_notiz_buch\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\bin\Debug\ITU2_NotizbuchOOP.exe.config
+C:\Users\KDanowski\Desktop\schul_notiz_buch\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\bin\Debug\ITU2_NotizbuchOOP.exe
+C:\Users\KDanowski\Desktop\schul_notiz_buch\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\bin\Debug\ITU2_NotizbuchOOP.pdb
+C:\Users\KDanowski\Desktop\schul_notiz_buch\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\obj\Debug\ITU2_NotizbuchOOP.csprojAssemblyReference.cache
+C:\Users\KDanowski\Desktop\schul_notiz_buch\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\obj\Debug\ITU2_NotizbuchOOP.Form1.resources
+C:\Users\KDanowski\Desktop\schul_notiz_buch\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\obj\Debug\ITU2_NotizbuchOOP.Properties.Resources.resources
+C:\Users\KDanowski\Desktop\schul_notiz_buch\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\obj\Debug\ITU2_NotizbuchOOP.csproj.GenerateResource.cache
+C:\Users\KDanowski\Desktop\schul_notiz_buch\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\obj\Debug\ITU2_NotizbuchOOP.csproj.CoreCompileInputs.cache
+C:\Users\KDanowski\Desktop\schul_notiz_buch\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\obj\Debug\ITU2_NotizbuchOOP.exe
+C:\Users\KDanowski\Desktop\schul_notiz_buch\ITU2_NotizbuchOOP\ITU2_NotizbuchOOP\obj\Debug\ITU2_NotizbuchOOP.pdb
