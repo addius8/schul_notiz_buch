@@ -569,7 +569,7 @@
             // 
             // homework_delete_btn
             // 
-            this.homework_delete_btn.Location = new System.Drawing.Point(607, 405);
+            this.homework_delete_btn.Location = new System.Drawing.Point(688, 405);
             this.homework_delete_btn.Name = "homework_delete_btn";
             this.homework_delete_btn.Size = new System.Drawing.Size(75, 23);
             this.homework_delete_btn.TabIndex = 50;

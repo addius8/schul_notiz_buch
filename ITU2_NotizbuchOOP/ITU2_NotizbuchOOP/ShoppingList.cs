@@ -10,6 +10,22 @@ namespace ITU2_NotizbuchOOP
     {
         private static int idCounter = 1;
         private DateTime deadline;
-        private IDictionary<Produkt, int> positionen = new Dictionary<Produkt, int>();
+        private IDictionary<Product, int> positions = new Dictionary<Product, int>();
+
+        public IDictionary<Product, int> Positions { get => positions; }
+
+        public ShoppingList(int id, String title, DateTime timestamp, DateTime deadline)
+        {
+            this.id = id;
+            this.title = title;
+            this.timestamp = timestamp;
+            this.deadline = deadline;
+        }
+        public ShoppingList(String title, DateTime timestamp, DateTime deadline)
+        {
+            this.title = title;
+            this.timestamp = timestamp;
+            this.deadline = deadline;
+        }
     }
 }

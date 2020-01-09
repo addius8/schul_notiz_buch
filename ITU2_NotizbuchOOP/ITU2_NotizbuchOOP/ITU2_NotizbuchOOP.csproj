@@ -57,8 +57,10 @@
     <Compile Include="INoteBook.cs" />
     <Compile Include="Notiz.cs" />
     <Compile Include="Notizbuch.cs" />
+    <Compile Include="Produkt.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShoppingList.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

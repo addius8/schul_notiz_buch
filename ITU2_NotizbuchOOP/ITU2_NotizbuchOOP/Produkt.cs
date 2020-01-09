@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ITU2_NotizbuchOOP
 {
-    class Produkt
+    class Product
     {
         private String name;
         private String unit;
@@ -16,7 +16,7 @@ namespace ITU2_NotizbuchOOP
         public String Unit { get => unit; }
         public int PricePerUnit { get => price_per_unit; }
 
-        Produkt(String name, String unit, int price_per_unit)
+        Product(String name, String unit, int price_per_unit)
         {
             this.name = name;
             this.unit = unit;
