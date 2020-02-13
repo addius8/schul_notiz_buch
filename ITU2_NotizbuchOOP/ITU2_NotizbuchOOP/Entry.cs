@@ -18,7 +18,7 @@ namespace ITU2_NotizbuchOOP
             {
                 return false;
             }
-            if (!this.id.Equals(((Note)obj).getID()))
+            if (!this.id.Equals(((Entry)obj).getID()))
             {
                 return false;
             }

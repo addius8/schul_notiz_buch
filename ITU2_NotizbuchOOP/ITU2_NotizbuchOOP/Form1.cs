@@ -191,22 +191,22 @@ namespace ITU2_NotizbuchOOP
 
         private void saveHomeWork(object sender, EventArgs e)
         {
-            string title = title_input.Text;
-            int priority = (int)priority_input.Value;
-            string category = category_input.Text;
-            string text = note_input.Text;
-            DateTime timestamp = timestamp_input.Value;
-            DateTime deadline = deadline_input.Value;
-            Note newNote;
+            string title = homework_title_input.Text;
+            int time = (int) homework_needed_time_input.Value;
+            string category = homework_subject_input.Text;
+            string text = homework_task_input.Text;
+            DateTime timestamp = homework_timestamp_input.Value;
+            DateTime deadline = homework_deadline_input.Value;
+            HomeWork newNote;
             if (currentNote != 0)
             {
-                newNote = new Note(title, priority, category, text, timestamp, deadline, currentNote);
+                newNote = new HomeWork(title, time, category, text, timestamp, deadline, currentNote);
             }
             else
             {
-                newNote = new Note(title, priority, category, text, timestamp, deadline);
+                newNote = new HomeWork(title, time, category, text, timestamp, deadline);
             }
-            regularNoteBookInstance.saveNote(newNote);
+            homeWorkNoteBook.saveNote(newNote);
             currentNote = 0;
             clear();
             syncHomeWorkDisplayBox();
@@ -215,10 +215,9 @@ namespace ITU2_NotizbuchOOP
         {
             homework_display_box.Items.Clear();
             List<Entry> tempNotes = homeWorkNoteBook.getNotes();
-            tempNotes.Sort();
             foreach (Entry note in tempNotes)
             {
-                notes_display.Items.Add(
+                homework_display_box.Items.Add(
                     note.getID() +
                     " - " +
                     note.getTitle()
@@ -245,7 +244,7 @@ namespace ITU2_NotizbuchOOP
         {
             currentHomeWork = parseHomeWorkIDFromTitle();
 
-            HomeWork note = (HomeWork) homeWorkNoteBook.findEntryByID(currentNote);
+            HomeWork note = (HomeWork) homeWorkNoteBook.findEntryByID(currentHomeWork);
             homework_title_input.Text = note.getTitle();
             homework_needed_time_input.Value = note.getTimeNeeded();
             homework_timestamp_input.Value = note.getTimestamp();
@@ -266,6 +265,32 @@ namespace ITU2_NotizbuchOOP
             String displayed_title = o.ToString();
             String id = displayed_title.Substring(0, displayed_title.IndexOf(" - "));
             return int.Parse(id);
+        }
+
+        private void homework_search_input_changed(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchHomeWorkByTitle()
+        {
+            homework_preview_box.Text = "";
+            string titleComponent = homework_search_title_input.Text;
+            homework_display_box.Items.Clear();
+            List<Entry> tempNotes = homeWorkNoteBook.getNotes();
+            foreach (Entry entry in tempNotes)
+            {
+                Note note = (Note)entry;
+                if (note.getTitle().Contains(titleComponent) && note.getPriority() == homework_search_time_needed_input.Value)
+                {
+                    homework_display_box.Items.Add(
+                        note.getID() +
+                        " - " +
+                        note.getTitle()
+                    );
+                }
+
+            }
         }
     }
 }

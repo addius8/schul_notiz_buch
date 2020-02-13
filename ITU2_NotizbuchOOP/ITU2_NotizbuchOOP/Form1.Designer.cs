@@ -731,6 +731,7 @@
             this.homework_search_title_input.Name = "homework_search_title_input";
             this.homework_search_title_input.Size = new System.Drawing.Size(186, 20);
             this.homework_search_title_input.TabIndex = 54;
+            this.homework_search_title_input.TextChanged += new System.EventHandler(this.homework_search_input_changed);
             // 
             // label28
             // 

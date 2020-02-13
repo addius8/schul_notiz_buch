@@ -29,7 +29,7 @@ namespace ITU2_NotizbuchOOP
         {
             for (int i = 0; i < notes.Count(); i++)
             {
-                Note note = (Note) notes[i];
+                Entry note = (Entry) notes[i];
                 if (id.Equals(note.getID()))
                 {
                     return note;
